@@ -19,6 +19,8 @@ public:
     bool downKey = false;
     bool leftKey = false;
     bool rightKey = false;
+    bool mouseDown = false;
+
 
     void render(sf::RenderWindow& window);
     void handleInput(sf::Event event);
