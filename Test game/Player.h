@@ -1,6 +1,8 @@
 #pragma once
 
 #include<SFML/graphics.hpp>
+#include<vector>
+#include"Bullet.h"
 
 
 class Player {
@@ -21,6 +23,7 @@ public:
     bool rightKey = false;
     bool mouseDown = false;
 
+    std::vector<Bullet> bullets;
 
     void render(sf::RenderWindow& window);
     void handleInput(sf::Event event);

@@ -4,10 +4,15 @@
 #include <cstdlib>
 #include <string>
 #include <vector>
+#include"utility.h"
 
 void Player::render(sf::RenderWindow& window) {
 	body.setPosition(sf::Vector2f{ x, y });
 	window.draw(body);
+
+    for (int i = 0; i < bullets.size(); ++i) {
+        bullets[i].render(window);
+    }
 }
 
 void Player::handleInput(sf::Event event) {
@@ -41,6 +46,13 @@ void Player::handleInput(sf::Event event) {
         if (event.key.code == sf::Keyboard::D) {
             rightKey = false;
         }
+
+        if (event.type == sf::Event::MouseButtonPressed) {
+            sf::Vector2f diff{ event.mouseButton.x - x, event.mouseButton.y - y };
+            Bullet b;
+            b.direction = sf::normalize(diff);
+            bullets.push_back(b);
+        }
     }
 }
 
@@ -63,4 +75,9 @@ void Player::update() {
 
     y += velY;
     x += velX;
+
+    for (int i = 0; i < bullets.size(); ++i)
+    {
+        bullets[i].update();
+    }
 }
