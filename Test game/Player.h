@@ -7,7 +7,7 @@
 
 class Player {
 public:
-
+    //Movement Variables
     float x = 0;
     float y = 0;
 
@@ -17,6 +17,7 @@ public:
     const float acc = 0.7;
     const float fric = 0.1;
 
+    //Key inputs
     bool upKey = false;
     bool downKey = false;
     bool leftKey = false;

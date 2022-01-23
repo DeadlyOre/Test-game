@@ -4,7 +4,7 @@
 
 class Bullet {
 public:
-
+	//Movement variables
 	const int speed = 15;
 	float x;
 	float y;

@@ -22,9 +22,6 @@ int main()
 
             player.handleInput(event);
         }
-
-
-
         window.clear();
 
         sf::sleep(sf::milliseconds(15));
@@ -33,6 +30,5 @@ int main()
         player.render(window);
         window.display();
     }
-
     return 0;
 }

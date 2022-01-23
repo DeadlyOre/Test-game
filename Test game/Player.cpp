@@ -6,6 +6,7 @@
 #include <vector>
 #include"utility.h"
 
+//Player rendering
 void Player::render(sf::RenderWindow& window) {
 	body.setPosition(sf::Vector2f{ x, y });
 	window.draw(body);
@@ -15,8 +16,10 @@ void Player::render(sf::RenderWindow& window) {
     }
 }
 
+//Player input
 void Player::handleInput(sf::Event event) {
 
+    //Keyboard input
     if (event.type == sf::Event::KeyPressed) {
 
         if (event.key.code == sf::Keyboard::W) {
@@ -47,6 +50,7 @@ void Player::handleInput(sf::Event event) {
             rightKey = false;
         }
     }
+    //Mouse input
     if (event.type == sf::Event::MouseButtonPressed) {
         sf::Vector2f bodySize = body.getSize();
         sf::Vector2f center{ x + bodySize.x / 2, y + bodySize.y / 2 };
@@ -59,6 +63,7 @@ void Player::handleInput(sf::Event event) {
     }
 }
 
+//Player movement
 void Player::update() {
     if (upKey) {
         velY -= acc;
@@ -79,6 +84,7 @@ void Player::update() {
     y += velY;
     x += velX;
 
+    //update bullets
     for (int i = 0; i < bullets.size(); ++i)
     {
         bullets[i].update();
