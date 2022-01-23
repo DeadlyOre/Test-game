@@ -9,11 +9,11 @@
 
 void Bullet::update() {
 	x += direction.x * speed;
-	y += direction.x * speed;
+	y += direction.y * speed;
 }
 
 void Bullet::render(sf::RenderWindow& window) {
 	bullet.setPosition(sf::Vector2f{ (float)x, (float)y });
+	bullet.setFillColor(sf::Color{ 255,255,0 });
 	window.draw(bullet);
-	bullet.setFillColor(sf::Color{ 255,0,0 });
 }

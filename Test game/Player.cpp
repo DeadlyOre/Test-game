@@ -46,13 +46,16 @@ void Player::handleInput(sf::Event event) {
         if (event.key.code == sf::Keyboard::D) {
             rightKey = false;
         }
-
-        if (event.type == sf::Event::MouseButtonPressed) {
-            sf::Vector2f diff{ event.mouseButton.x - x, event.mouseButton.y - y };
-            Bullet b;
-            b.direction = sf::normalize(diff);
-            bullets.push_back(b);
-        }
+    }
+    if (event.type == sf::Event::MouseButtonPressed) {
+        sf::Vector2f bodySize = body.getSize();
+        sf::Vector2f center{ x + bodySize.x / 2, y + bodySize.y / 2 };
+        sf::Vector2f diff{ event.mouseButton.x - center.x, event.mouseButton.y - center.y };
+        Bullet b;
+        b.direction = sf::normalize(diff);
+        b.x = center.x;
+        b.y = center.y;
+        bullets.push_back(b);
     }
 }
 

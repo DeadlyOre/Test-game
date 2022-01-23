@@ -5,15 +5,14 @@
 class Bullet {
 public:
 
-	const int speed = 5;
-	int x;
-	int y;
+	const int speed = 15;
+	float x;
+	float y;
 	
 	sf::Vector2f direction;
 
 	void update();
 	void render(sf::RenderWindow& window);
 
-	sf::RectangleShape bullet{ sf::Vector2f{8, 8} };
+	sf::CircleShape bullet{10};
 };
-
